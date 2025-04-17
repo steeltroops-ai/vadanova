@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { NeonCard } from "@/components/ui/neon-card";
 import { NeonBadge } from "@/components/ui/neon-badge";
-import { NeonButton } from "@/components/ui/neon-button";
 
 export default function KnowledgePage() {
   const [activeCategory, setActiveCategory] = useState<
@@ -1075,9 +1074,10 @@ export default function KnowledgePage() {
       {activeCategory === "principles" && (
         <div className="space-y-6">
           <p className="text-foreground/70">
-            Ayurveda, the "science of life," is one of the world's oldest
-            holistic healing systems. It emphasizes balance between body, mind,
-            and spirit to promote health and prevent disease.
+            Ayurveda, the &quot;science of life,&quot; is one of the
+            world&apos;s oldest holistic healing systems. It emphasizes balance
+            between body, mind, and spirit to promote health and prevent
+            disease.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

@@ -75,10 +75,12 @@ export default function RecommendationPage() {
       }
 
       setRecommendations(response);
-    } catch (err: any) {
+    } catch (err: Error | unknown) {
+      const errorMessage =
+        err instanceof Error ? err.message : "Unknown error occurred";
       console.error("Error getting recommendations:", err);
       setError(
-        `Failed to get recommendations: ${err.message || "Please try again."}`
+        `Failed to get recommendations: ${errorMessage || "Please try again."}`
       );
     } finally {
       setLoading(false);

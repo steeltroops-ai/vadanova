@@ -1,7 +1,5 @@
 import { NeonButton } from "@/components/ui/neon-button";
 import { NeonCard } from "@/components/ui/neon-card";
-import { NeonBadge } from "@/components/ui/neon-badge";
-import Link from "next/link";
 
 export default function Home() {
   return (

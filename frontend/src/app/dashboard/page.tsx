@@ -1,31 +1,27 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { getHerbs, getDiseases, getDoshaInfo } from "@/lib/api";
+import {
+  getHerbs,
+  getDiseases,
+  getDoshaInfo,
+  HerbInfo,
+  DiseaseInfo,
+  DoshaInfo,
+} from "@/lib/api";
 import { NeonCard } from "@/components/ui/neon-card";
 import { NeonBadge } from "@/components/ui/neon-badge";
 import { NeonProgress } from "@/components/ui/neon-progress";
 
-// Define types
-type Herb = {
-  name: string;
-  properties: string[];
-  doshas: string[];
-};
-
-type Disease = {
-  name: string;
-  symptoms: string[];
-  dosha_imbalance: string[];
-};
+// Use types from API
 
 export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState<"herbs" | "diseases" | "doshas">(
     "herbs"
   );
-  const [herbs, setHerbs] = useState<Herb[]>([]);
-  const [diseases, setDiseases] = useState<Disease[]>([]);
-  const [doshaInfo, setDoshaInfo] = useState<any>(null);
+  const [herbs, setHerbs] = useState<HerbInfo[]>([]);
+  const [diseases, setDiseases] = useState<DiseaseInfo[]>([]);
+  const [doshaInfo, setDoshaInfo] = useState<DoshaInfo | null>(null);
   const [loading, setLoading] = useState(true);
 
   // Fetch data on component mount

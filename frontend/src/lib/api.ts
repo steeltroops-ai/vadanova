@@ -20,6 +20,27 @@ export type Dosha = {
   kapha: number;
 };
 
+export type DoshaInfo = {
+  vata: {
+    elements: string[];
+    qualities: string[];
+    functions: string[];
+    imbalance_symptoms: string[];
+  };
+  pitta: {
+    elements: string[];
+    qualities: string[];
+    functions: string[];
+    imbalance_symptoms: string[];
+  };
+  kapha: {
+    elements: string[];
+    qualities: string[];
+    functions: string[];
+    imbalance_symptoms: string[];
+  };
+};
+
 export type PatientProfile = {
   age: number;
   gender: string;
@@ -363,10 +384,16 @@ export async function getRecommendations(
   }
 }
 
+export type HerbInfo = {
+  name: string;
+  properties: string[];
+  doshas: string[];
+};
+
 /**
  * Get a list of all herbs
  */
-export async function getHerbs(): Promise<any[]> {
+export async function getHerbs(): Promise<HerbInfo[]> {
   try {
     // For development, return mock data
     return [
@@ -399,10 +426,16 @@ export async function getHerbs(): Promise<any[]> {
   }
 }
 
+export type DiseaseInfo = {
+  name: string;
+  symptoms: string[];
+  dosha_imbalance: string[];
+};
+
 /**
  * Get a list of all diseases/conditions
  */
-export async function getDiseases(): Promise<any[]> {
+export async function getDiseases(): Promise<DiseaseInfo[]> {
   try {
     // For development, return mock data
     return [
@@ -438,7 +471,7 @@ export async function getDiseases(): Promise<any[]> {
 /**
  * Get information about the three doshas
  */
-export async function getDoshaInfo(): Promise<any> {
+export async function getDoshaInfo(): Promise<DoshaInfo> {
   try {
     // For development, return mock data
     return {
